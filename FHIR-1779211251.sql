@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS `Patient` (
+	`Patient_id` INTEGER NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT,
+	`First_Name` TEXT NOT NULL,
+	`Last_Name` TEXT NOT NULL,
+	`Date_Of_Birth` REAL NOT NULL,
+	`Gender` INTEGER NOT NULL,
+	`Blood_Type` TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS `Appointment` (
+	`Appointment_id` INTEGER NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT,
+	`Patient_id` INTEGER NOT NULL,
+	`Status` INTEGER NOT NULL,
+	`Priority` INTEGER NOT NULL,
+	`Doctor_id` INTEGER NOT NULL,
+	`Department` INTEGER NOT NULL,
+	`Appointment_type` INTEGER NOT NULL,
+	FOREIGN KEY (`Patient_id`) REFERENCES `Patient`(`Patient_id`)
+);
